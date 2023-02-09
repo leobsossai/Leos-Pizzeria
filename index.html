@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Leo's</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Hepta+Slab:400,700|Lato:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="models">
+        <div class="slide">
+            <div class="slide-img"><img src=""></div>
+            <div class="slide-name">-</div>
+        </div>
+        <div class="pizza">
+            <div class="pizza-name">-</div>
+            <div class="pizza-img"><a href=""><img src=""><button>+</button></a></div>
+            <div class="pizza-desc">-</div>
+            <div class="pizza-price">R$ -</div>
+        </div>
+        <div class="cart">
+            <div class="cart-info">
+                <div class="cart-img"><img src=""></div>
+                <div class="cart-name">--</div>
+                <div class="cart-qt--area">
+                    <div class="cart-qtminus">-</div>
+                    <div class="cart-qt">1</div>
+                    <div class="cart-qtplus">+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div id="logo"><img src="assets/images/logo.jpg" alt="logo"></div>
+        <div id="menu">
+            <ul>
+                <li class="menuHome">Home</li>
+                <li class="menuPizzas">Pizzas</li>
+                <li class="menuCart">Cart</li>
+                <li>Login</li>
+            </ul>
+        </div>
+        <div id="mobileMenu-button"><img src="assets/images/menu.png"></div>
+    </header>
+    <div id="mobileMenu">
+            <ul>
+                <li class="menuHome">Home</li>
+                <li class="menuPizzas">Pizzas</li>
+                <li class="menuCart">Cart</li>
+                <li>Login</li>
+            </ul>
+    </div>
+    
+    <main>
+
+        <section id="background"><div id="bg-modal"></div><div id="bg-text"><span>Artisan Pizzas</span></div></section>
+
+        <section id="slider">
+            <div id="slider-area"></div>
+            <div class="slider-dots">
+                <span class="dot one"  onclick="currentSlide(1)"></span>
+                <span class="dot two" onclick="currentSlide(2)"></span>
+                <span class="dot three" onclick="currentSlide(3)"></span>
+            </div>
+        </section>
+
+        <section id="pizzas">
+            <div class="pizzas-select--area">
+                <h1>Pizzas</h1>
+                <div id="pizzas-area"></div>
+            </div>
+            
+        </section>
+
+        <aside id="cart">
+            <h2>Suas Pizzas</h2>
+            <div class="cart-area"></div>
+            <div class="cart-sub">Subtotal<span>R$ --</span></div>
+            <div class="cart-disc">Desconto (-10%)<span>R$ --</span></div>
+            <div class="cart-total">Total<span>R$ --</span></div>
+            <button>FINALIZAR COMPRA</button>
+            <button id="cart-cancel">Cancelar</button>
+        </aside>
+
+    </main>
+
+    <div class="pizza-window">
+        <div class="window-area">
+            <div class="window-img"><img src=""></div>
+            <div class="window-info">
+                <div class="window-name">-</div>
+                <div class="window-desc">-</div>
+                <h3>TAMANHO</h3>
+                <div class="window-sizes">
+                    <div class="size-select" data-key="0">PEQUENA<div class="size" >-</div></div>
+                    <div class="size-select" data-key="1">MÉDIA<div class="size" >-</div></div>
+                    <div class="size-select selected" data-key="2">GRANDE<div class="size" >-</div></div>
+                </div>
+                <h3>PREÇO</h3>
+                <div class="window-price">
+                    <div class="prices">-</div>
+                    <div class="qt-area">
+                        <div class="window-qtminus">-</div>
+                        <div class="window-qt">1</div>
+                        <div class="window-qtplus">+</div>
+                    </div>
+                </div>
+                <div class="window-buttons">
+                    <button class="confirm-btn">Adicionar ao carrinho</button>
+                    <button class="cancel-btn" onclick="closeWindow()">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="assets/js/pizzas.js"></script>
+    <script type="text/javascript" src="assets/js/script.js"></script>
+</body>
+</html>

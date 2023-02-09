@@ -1,0 +1,559 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color:#222;
+    font-family:'Lato',Helvetica,Arial;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 50px;
+}
+.models {
+    display: none;
+}
+/*HEADER/////////////////////////////////////////////////////////////////////////////////////*/
+header {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    width: 100vw;
+    z-index: 999;
+    box-shadow: 2px 2px 5px black;
+}
+#logo img {
+    width: 120px;
+}
+#menu {
+    display: flex;
+    align-items: center;
+}
+#menu ul {
+    display: flex;
+    list-style: none;
+}
+#menu ul li {
+    padding: 0 40px 0 40px;
+    font-size: 20px;
+    border-left: 1px solid black;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+#menu ul li:hover {
+    background-color: #222;
+    color: white;
+}
+#menu ul li:hover a {
+    color: white;
+}
+#menu ul li a {
+    text-decoration: none;
+    color: black;
+}
+#mobileMenu-button {
+    display: none;
+    align-items: center;
+    cursor: pointer;
+}
+#mobileMenu-button img {
+    width: 40px;
+}
+#mobileMenu {
+    background-color: #222;
+    color: white;
+    position: fixed;
+    right: 0;
+    top: -1000px;
+    left: 0;
+    border-bottom: 1px solid white;
+    box-shadow: 2px 2px 5px black;
+    transition: all 0.4s ease;
+    z-index: 998;
+}
+#mobileMenu ul {
+    list-style: none;
+}
+#mobileMenu ul li {
+    font-size: 50px;
+    margin: 20px 0;
+    cursor: pointer;
+}
+/*BACKGROUND/////////////////////////////////////////////////////////////////////////////////////*/
+#background {
+    height: 100vh;
+    background-image: url('../images/pizza\ bg.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+#bg-modal {
+    height: 100vh;
+    background-color: #444;
+    opacity: 0.4;
+    display: flex;
+}
+#background #bg-text {
+    color: white;
+    font-size: 100px;
+    z-index: 997;
+    width: 100%;
+    height: calc(100% - 123px);
+    position: absolute;
+    left: 0;
+    top: 73px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Hepta Slab';
+}
+#background #bg-text span::after {
+    display: flex;
+    content: "";
+    height: 5px;
+    width: 100%;
+    background-color: #222;
+}
+/*SLIDER/////////////////////////////////////////////////////////////////////////////////////*/
+#slider {
+    display: flex;
+    flex-direction: column;
+    width: 1140px;
+    padding: 40px 0;
+    overflow: hidden;
+    margin: auto;
+}
+#slider-area {
+    width: 2280px;
+    margin-left: 0px;
+    display: flex;
+    transition: all 0.2s ease 0s;
+}
+.slide {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10%;
+    margin: 20px 10px;
+}
+.slide-img img{
+    width: 300px;
+}
+.slide-name {
+    margin: 40px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+}
+.slider-dots {
+    text-align: center;
+}
+.slider-dots .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+.active, .dot:hover {
+    background-color: #717171 !important;
+}
+.dot.three {
+    display: none;
+}
+/*PIZZAS AREA//////////////////////////////////////////////////////////////////////////////////////*/
+#pizzas {
+    background-color: white;
+    display: flex;
+}
+#pizzas-area {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    transition: all 0.3s ease;
+}
+#pizzas h1 {
+    font-size: 50px;
+    margin: 50px 0 0 50px;
+    font-family: 'Hepta Slab';
+}
+.pizza { 
+    max-width: 250px;
+    text-align: center;
+    margin: 40px 100px;
+}
+.pizza-name {
+    font-weight: bold;
+    font-size: 30px;
+}
+.pizza-img {
+    width: 200px;
+    height: 200px;
+    border-radius:100px;
+    box-shadow:0px 10px 50px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    position: relative;
+}
+.pizza-img a {
+    display: block;
+}
+.pizza-img img {
+    width: 200px;
+}
+.pizza-img a button {
+    background-color: #222;
+    border-radius: 50%;
+    color: white;
+    font-size: 30px;
+    width: 40px;
+    position: absolute;
+    left: 80px;
+    bottom: -25px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.pizza-img a:hover button {
+    transform : scale(1.2);
+}
+.pizza-desc {
+    margin-top: 30px;
+}
+.pizza-price {
+    margin-top: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+/*WINDOW AREA/////////////////////////////////////////////////////////////////////////////////////*/
+.pizza-window {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(34, 34, 34, 0.6);
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease;
+}
+.window-area {
+    width: 900px;
+    background-color: white;
+    display: flex;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow:0px 0px 15px rgb(97, 97, 97);
+}
+.window-img {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+}
+.window-img img {
+    width: 350px;
+}
+.window-name {
+    font-weight: bold;
+    font-size: 50px;
+}
+.window-desc {
+    color: #999;
+}
+.window-info h3 {
+    padding: 7px;
+    color: white;
+    background-color: #222;
+}
+.window-sizes {
+    display: inline-flex;
+    background-color: rgb(215, 215, 215);
+    border-radius: 5px;
+}
+.size-select {
+    display: flex;
+    font-weight: bold;
+    padding: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.size-select:hover {
+    background-color: rgb(230, 230, 230);
+    border-radius: 5px;
+}
+.selected {
+    border-radius: 5px;
+    background-color: #222;
+    color: white;
+}
+.selected:hover {
+    border-radius: 5px;
+    background-color: #222;
+    color: white;
+}
+.size {
+    font-weight: 400;
+    margin-left: 5px;
+}
+.window-price {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+}
+.prices {
+    font-size: 23px;
+    margin-right: 30px;
+}
+.qt-area {
+    display: flex;
+    background-color: rgb(218, 218, 218);
+    border-radius: 5px;
+    padding: 5px;
+}
+.window-qtminus,
+.window-qtplus {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 10px;
+    cursor: pointer;
+}
+.window-qt {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 2px;
+}
+.confirm-btn {
+    background-color: rgb(10, 209, 93);
+    color: white;
+    border: none;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.confirm-btn:hover {
+    background-color: rgb(10, 186, 83);
+}
+.cancel-btn {
+    background-color: white;
+    font-size: 15px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.cancel-btn:hover {
+    background-color: #222;
+    color: white;
+}
+
+/*Aside - Cart area////////////////////////////////////////////////////////////////////////////////*/
+#cart {
+    display: none;
+    width: 30vw;
+    background-color: #222;
+    color: white;
+    position: fixed;
+    top: 200px;
+    right: 50px;
+    z-index: 1000;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 2px 2px 5px black;
+}
+.cart-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.cart h2 {
+    font-family: 'Hepta Slab';
+    margin-top: 0;
+}
+.cart-img img {
+    width: 45px;
+    margin-right: 10px ;
+}
+.cart-name {
+    flex: 1;
+}
+.cart-qt--area {
+    display: flex;
+    background-color: rgb(218, 218, 218);
+    border-radius: 5px;
+    padding: 3px;
+    color: #222;
+}
+.cart-qtminus,
+.cart-qtplus {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0 5px;
+    cursor: pointer;
+}
+.cart-qt {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0 2px;
+}
+.cart-sub,
+.cart-disc {
+    font-size: 18px;
+    color: #bbb;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+.cart-total {
+    font-size: 22px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    font-family: 'Hepta Slab';
+}
+#cart button {
+    background-color: rgb(10, 209, 93);
+    color: white;
+    border: none;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+#cart button:hover {
+    background-color: rgb(10, 186, 83);
+}
+#cart button:last-child {
+    background-color: #222;
+    color: white;
+    border: none;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px;
+    cursor: pointer;
+}
+
+/*RESPONSIVIDADE//////////////////////////////////////////////////////////////////////////////////////*/
+@media(max-width:1440px) {
+    #background #bg-text {
+        font-size: 75px;
+    }
+    #slider {
+        justify-content: flex-start;
+        width: 900px;
+    }
+    #slider-area {
+        width: 1980px;
+    }
+    .slide {
+        max-width: 280px;
+    }
+    .slide-img img{
+        width: 220px;
+    }
+    .slide-name {
+        margin: 35px;
+        font-size: 30px;
+    }
+}
+
+
+@media(max-width:1128px) {
+    #pizzas-area {
+        width: 90%;
+    }
+    #pizzas h1 {
+        font-size: 50px;
+        margin: 50px 0 0 50px;
+        font-family: 'Hepta Slab';
+    }
+    .pizza { 
+        margin: 40px 50px;
+    }
+}
+
+
+@media(max-width:910px) {
+    #slider {
+        width: 328px;
+    }
+    #slider-area {
+        width: 300%;
+    }
+    .slide {
+        max-width: 150px;
+        padding: 15px;
+        margin: 10px 7px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .slide-img{
+        width: 80%;
+    }
+    .slide-img img{
+        width: 100%;
+    }
+    .slide-name {
+        margin: 10px;
+        font-size: 20px;
+    }
+}
+
+@media(max-width:780px) {
+    header {
+        justify-content: end;
+    }
+    #menu {
+        display: none;
+    }
+    #mobileMenu-button {
+        display: flex;
+        margin: 0 2.564vw 0 35.897vw;
+    }
+
+    .window-area {
+        width: 90%;
+        padding: 10px;
+        flex-direction: column;
+    }
+    .window-img {
+        margin: 10px;
+        justify-content: center;
+    }
+    .window-img img {
+        width: 250px;
+    }
+    .window-name {
+        font-size: 30px;
+    }
+    .window-info h3 {
+        padding: 5px;
+    }
+}
+
+@media(max-width:650px) {
+    #background #bg-text {
+        font-size: 11.538vw;
+    } 
+}
+
+@media(max-width:413px) {
+    .window-sizes {
+        flex-direction: column;
+    }
+}
