@@ -57,6 +57,7 @@ header {
 }
 #mobileMenu-button img {
     width: 40px;
+    transition: all 0.3s ease;
 }
 #mobileMenu {
     background-color: #222;
@@ -95,7 +96,7 @@ header {
 #background #bg-text {
     color: white;
     font-size: 100px;
-    z-index: 997;
+    z-index: 996;
     width: 100%;
     height: calc(100% - 123px);
     position: absolute;
@@ -365,7 +366,7 @@ header {
     position: fixed;
     top: 200px;
     right: 50px;
-    z-index: 1000;
+    z-index: 997;
     border: 1px solid white;
     border-radius: 10px;
     padding: 30px;
@@ -469,6 +470,9 @@ header {
         margin: 35px;
         font-size: 30px;
     }
+    #cart {
+        width: 50vw;
+    }
 }
 
 
@@ -512,6 +516,9 @@ header {
         margin: 10px;
         font-size: 20px;
     }
+    #cart {
+        right: 10px;
+    }
 }
 
 @media(max-width:780px) {
@@ -544,16 +551,29 @@ header {
     .window-info h3 {
         padding: 5px;
     }
+    #cart {
+        width: 97vw;
+        bottom: 10px;
+        top: auto
+    } 
 }
 
 @media(max-width:650px) {
     #background #bg-text {
         font-size: 11.538vw;
-    } 
+    }
 }
 
-@media(max-width:413px) {
+@media(max-width:428px) {
     .window-sizes {
         flex-direction: column;
+        position: sticky;
+        left: 33%
+    }
+    .size-select {
+        justify-content: center;
+    }
+    .pizza {
+        margin: 20px 40px;
     }
 }

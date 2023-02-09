@@ -11,10 +11,16 @@ window.onresize = automaticSlider();
 //MENU EVENTS
 // home
 s('.menuHome').addEventListener('click',()=>s('#background').scrollIntoView({behavior:'smooth'}));
+s('.menuHome.mobile').addEventListener('click',()=>s('#background').scrollIntoView({behavior:'smooth'}));
 // pizzas area
 s('.menuPizzas').addEventListener('click',()=>s('#pizzas').scrollIntoView({behavior:'smooth'}));
+s('.menuPizzas.mobile').addEventListener('click',()=>s('#pizzas').scrollIntoView({behavior:'smooth'}));
 // menuMobile
 s('#mobileMenu-button').addEventListener('click',()=>{
+    s('#mobileMenu-button img').style.width = '45px';
+    setTimeout(()=>{
+        s('#mobileMenu-button img').style.width = '40px';    
+    },100);
     if (s('#mobileMenu').style.top == '123px') {
         s('#mobileMenu').style.top = '-1000px';
     } else {
@@ -216,7 +222,7 @@ s('.confirm-btn').addEventListener('click', ()=>{
     updateCart();
 });
 // adding the event of opening and closing the cart when clicking on the 'Cart' menu button
-s('.menuCart').addEventListener('click',()=>{
+function cartButton() {
     if(cart.length == 0 && s('#cart').style.display == 'none') {
         s('#cart').style.opacity = '0';
         s('#cart').style.display = 'block';
@@ -224,8 +230,10 @@ s('.menuCart').addEventListener('click',()=>{
             s('#cart').style.opacity = '1';
         },100);
         s('.cart-area').innerHTML = '';
-        s('#pizzas-area').style.width = '60%';
-        s('#pizzas-area').style.margin = '0';
+        if (window.innerWidth > 780) {
+            s('#pizzas-area').style.width = '60%';
+            s('#pizzas-area').style.margin = '0';
+        };
     } else if(cart.length > 0 && s('#cart').style.display == 'none') {
         updateCart();
     } else {
@@ -233,7 +241,9 @@ s('.menuCart').addEventListener('click',()=>{
         s('#pizzas-area').style.width = '80%';
         s('#pizzas-area').style.margin = 'auto';
     }
-});
+}
+s('.menuCart').addEventListener('click', cartButton);
+s('.menuCart.mobile').addEventListener('click', cartButton);
 // getting the JSON pizza info to the cart
 function updateCart() {
 
@@ -244,8 +254,10 @@ function updateCart() {
             s('#cart').style.opacity = '1';
         },100);
         s('.cart-area').innerHTML = '';
-        s('#pizzas-area').style.width = '60%';
-        s('#pizzas-area').style.margin = '0';
+        if (window.innerWidth > 780) {
+            s('#pizzas-area').style.width = '60%';
+            s('#pizzas-area').style.margin = '0';
+        };
 
         let subtotal = 0;
         let desconto = 0;
@@ -295,7 +307,7 @@ function updateCart() {
         s('.cart-disc span').innerHTML = `R$ ${desconto.toFixed(2)}`;
         s('.cart-total span').innerHTML = `R$ ${total.toFixed(2)}`;
     } else {
-        // close the cart window as well as cleaning all the information that was previously stored on it
+        // close the cart window as well as cleaning all the information that was previously stored in it
         s('#cart').style.display = 'none';
         s('#pizzas-area').style.width = '80%';
         s('#pizzas-area').style.margin = 'auto';
