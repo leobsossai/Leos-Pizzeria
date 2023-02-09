@@ -11,10 +11,16 @@ window.onresize = automaticSlider();
 //MENU EVENTS
 // home
 s('.menuHome').addEventListener('click',()=>s('#background').scrollIntoView({behavior:'smooth'}));
-s('.menuHome.mobile').addEventListener('click',()=>s('#background').scrollIntoView({behavior:'smooth'}));
+s('.menuHome.mobile').addEventListener('click',()=> {
+    s('#background').scrollIntoView({behavior:'smooth'})
+    s('#mobileMenu').style.top = '-1000px';
+});
 // pizzas area
 s('.menuPizzas').addEventListener('click',()=>s('#pizzas').scrollIntoView({behavior:'smooth'}));
-s('.menuPizzas.mobile').addEventListener('click',()=>s('#pizzas').scrollIntoView({behavior:'smooth'}));
+s('.menuPizzas.mobile').addEventListener('click',()=>{
+    s('#pizzas').scrollIntoView({behavior:'smooth'})
+    s('#mobileMenu').style.top = '-1000px';
+});
 // menuMobile
 s('#mobileMenu-button').addEventListener('click',()=>{
     s('#mobileMenu-button img').style.width = '45px';
@@ -243,7 +249,10 @@ function cartButton() {
     }
 }
 s('.menuCart').addEventListener('click', cartButton);
-s('.menuCart.mobile').addEventListener('click', cartButton);
+s('.menuCart.mobile').addEventListener('click', ()=> {
+    cartButton();
+    s('#mobileMenu').style.top = '-1000px';
+});
 // getting the JSON pizza info to the cart
 function updateCart() {
 
