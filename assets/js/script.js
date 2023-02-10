@@ -33,6 +33,13 @@ s('#mobileMenu-button').addEventListener('click',()=>{
         s('#mobileMenu').style.top = '123px'; 
     };
 });
+//Login 
+s('.menuLogin').addEventListener('click',()=>s('#Login').style.top = '0px');
+s('.menuLogin.mobile').addEventListener('click',()=>{
+    s('#Login').style.top = '0px'; 
+    s('#mobileMenu').style.top = '-1000px';
+});
+s('.login-close').addEventListener('click',()=>s('#Login').style.top = '-123px');
 
 // function to create an interval for the slider to work by itself and in a responsive way 
 function automaticSlider() {
